@@ -57,30 +57,30 @@ class Wysihtml5 extends Gdn_Plugin {
 
 	/**
 	 * Vanilla 2.0 only.
-	 * Hook DiscussionController::BeforeBodyField Event Handler.
+	 * Hook DiscussionController::BeforeBodyInput Event Handler.
 	 * This event fires just before the comment textbox is drawn.
 	 *
 	 * @param Gdn_Controller $Sender Sending Controller instance.
 	 */
-	public function DiscussionController_BeforeBodyField_Handler($Sender) {
+	public function DiscussionController_BeforeBodyInput_Handler($Sender) {
 		$this->AttachFormattingBar($Sender);
 	}
 
 	/**
 	 * Vanilla 2.0 only.
-	 * Hook PostController::BeforeBodyField Event Handler. Vanilla 2.0 only.
+	 * Hook PostController::BeforeBodyInput Event Handler. Vanilla 2.0 only.
 	 * This event fires just before the comment textbox is drawn.
 	 *
 	 * @param Gdn_Controller $Sender Sending Controller instance.
 	 */
-	public function PostController_BeforeBodyField_Handler($Sender) {
+	public function PostController_BeforeBodyInput_Handler($Sender) {
 		$this->AttachFormattingBar($Sender);
 	}
 
 	/**
 	 * Add Wysihtml5 resources
 	 *
-	 * @param Gdn_Controler $Sender
+	 * @param Gdn_Controller $Sender
 	 */
 	private function _AddWysihtml5($Sender) {
 		$Sender->AddCssFile('wysihtml5.css', 'plugins/Wysihtml5');
