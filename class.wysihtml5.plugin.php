@@ -3,7 +3,7 @@
 $PluginInfo['Wysihtml5'] = array(
 	'Name' => 'Wysihtml5',
 	'Description'	=> 'Turns the default text area into an HTML5 editor that generates valid and semantic markup. This version of the plugin is compatible with both Vanilla 2.0 and Vanilla 2.1b.',
-	'Version'	=> '13.04.23',
+	'Version'	=> '13.05.28',
 	'Author' => 'D.Zanella',
 	'AuthorEmail'	=> 'diego@pathtoenlightenment.net',
 	'AuthorUrl' => 'http://dev.pathtoenlightenment.net',
@@ -74,6 +74,17 @@ class Wysihtml5 extends Gdn_Plugin {
 	 * @param Gdn_Controller $Sender Sending Controller instance.
 	 */
 	public function PostController_BeforeBodyInput_Handler($Sender) {
+		$this->AttachFormattingBar($Sender);
+	}
+
+	/**
+	 * Vanilla 2.0 only.
+	 * Hook PostController::BeforeBodyField Event Handler. Vanilla 2.0 only.
+	 * This event fires just before the comment textbox is drawn.
+	 *
+	 * @param Gdn_Controller $Sender Sending Controller instance.
+	 */
+	public function DiscussionController_BeforeBodyField_Handler($Sender) {
 		$this->AttachFormattingBar($Sender);
 	}
 
